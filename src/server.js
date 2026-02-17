@@ -26,6 +26,10 @@ app.use(cors({
 
 app.use(clerkMiddleware()); // this adds auth field to request object: req.auth()
 
+app.get("/", (req, res) => {
+  res.send("Backend running");
+});
+
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/chat", chatRoutes);
 app.use("/api/sessions", sessionRoutes);
